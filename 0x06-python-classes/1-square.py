@@ -1,47 +1,71 @@
 #!/usr/bin/python3
 
 
-"""single link list module in python"""
+"""Example Google style docstrings.
+
+This module demonstrates documentation as specified by the `Google Python
+Style Guide`_. Docstrings may extend over multiple lines. Sections are created
+with a section header and a colon followed by a block of indented text.
+
+Example:
+    Examples can be given using either the ``Example`` or ``Examples``
+    sections. Sections support any reStructuredText formatting, including
+    literal blocks::
+
+        $ python example_google.py
+
+Section breaks are created by resuming unindented text. Section breaks
+are also implicitly created anytime a new section starts.
+
+Attributes:
+    module_level_variable1 (int): Module level variables may be documented in
+        either the ``Attributes`` section of the module docstring, or in an
+        inline docstring immediately following the variable.
+
+        Either form is acceptable, but the two should not be mixed. Choose
+        one convention to document module level variables and be consistent
+        with it.
+
+Todo:
+    * For module TODOs
+    * You have to also use ``sphinx.ext.todo`` extension
+
+.. _Google Python Style Guide:
+   http://google.github.io/styleguide/pyguide.html
+
+"""
 
 
-class Node:
-    """class Node for defining a single linked list"""
+class Square:
+    """The summary line for a class docstring should fit on one line.
 
-    def __init__(self, data, next_node=None):
-        """initialization for class node"""
-        self.data = data
-        self.next_node = next_node
+    If the class has public attributes, they may be documented here
+    in an ``Attributes`` section and follow the same formatting as a
+    function's ``Args`` section. Alternatively, attributes may be documented
+    inline with the attribute's declaration (see __init__ method below).
 
-    @property
-    def data(self):
-        """return data property when called"""
-        return (self._data)
+    Properties created with the ``@property`` decorator should be documented
+    in the property's getter method.
 
-    @property
-    def next_node(self):
-        """returns next_node when called"""
-        return (self._next_node)
-    
-    @data.setter
-    def data(self, value):
-        """sets the data for instance of Node"""
-        if type(value) == int:
-            self._data = value
-        else:
-            raise TypeError("data must be an integer")
-        
-    @next_node.setter
-    def next_node(self, value):
-        """sets the next_node for an instance of Node"""
-        if type(value) == Node or value == None:
-            self._next_node = value
-        else:
-            raise TypeError("next_node must be a Node object")
+    Attributes:
+        attr1 (str): Description of `attr1`.
 
-class SinglyLinkedList:
-    """defines a single linked list"""
+    """
 
-    def __init__(self):
-        self.head = None
+    def __init__(self, size):
+        """Example of docstring on the __init__ method.
 
-    def sorted_insert(self, value):
+        The __init__ method may be documented in either the class level
+        docstring, or as a docstring on the __init__ method itself.
+
+        Either form is acceptable, but the two should not be mixed. Choose one
+        convention to document the __init__ method and be consistent with it.
+
+        Note:
+            Do not include the `self` parameter in the ``Args`` section.
+
+        Args:
+            param1 (size): Description of `size.
+
+        """
+        self.__size = size
