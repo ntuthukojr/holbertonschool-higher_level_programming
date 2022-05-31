@@ -1,30 +1,23 @@
 #!/usr/bin/python3
+
+'''Task 12 - 12. Pascal's Triangle'''
+
+
 def pascal_triangle(n):
-    """ Function that returns the pascal triangle
+    """function that returns a list of lists of integers
+    representing the Pascal’s triangle of n:"""
 
-    Args:
-        n: number of lines
+    t_pascal = list()
+    if n <= 0:
+        return (t_pascal)
 
-    Returns:
-        matrix: a matrix with the pascal triangle
+    for i in range(1, n + 1):
+        t_pascal.append([1 for j in range(i)])
 
-    """
+    for i in range(2, len(t_pascal)):
+        prev_list = t_pascal[i - 1]
+        curr_list = t_pascal[i]
+        for j in range(len(prev_list) - 1):
+            curr_list[j + 1] = prev_list[j] + prev_list[j + 1]
 
-    matrix = []
-    prev = []
-
-    for i in range(n):
-        res_list = []
-        p1 = -1
-        p2 = 0
-        for j in range(len(prev) + 1):
-            if p1 == -1 or p2 == len(prev):
-                res_list += [1]
-            else:
-                res_list += [prev[p1] + prev[p2]]
-            p1 += 1
-            p2 += 1
-        matrix.append(res_list)
-        prev = res_list[:]
-
-    return matrix
+    return (t_pascal)
