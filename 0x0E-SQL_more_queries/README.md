@@ -1,5 +1,5 @@
 # SQL - More queries
-
+By Ntuthuko Express
 In this project, I continued to practicing SQL queries, working with
 permissoins, joins, and constraints.
 
