@@ -1,16 +1,23 @@
 #!/usr/bin/node
-const prevSquare = require('./5-square');
-class Square extends prevSquare {
-  // Method to print Square instance using given character or 'X'
-  charPrint (c = 'X') {
-    let row = '';
-    let i = 0;
-    for (i = 0; i < this.width; i++) {
-      row += c;
-    }
-    for (i = 0; i < this.height; i++) {
-      console.log(row);
+/*
+    Class Square
+    inherit from Rectangle
+    create a charPrint(c) method
+*/
+class Square extends require('./5-square.js') {
+  constructor (size) {
+    super(size, size);
+  }
+
+  charPrint (c) {
+    if (typeof c === 'undefined') {
+      this.print();
+    } else {
+      for (let height = 0; height < this.height; height++) {
+        console.log(c.repeat(this.width));
+      }
     }
   }
 }
+
 module.exports = Square;
