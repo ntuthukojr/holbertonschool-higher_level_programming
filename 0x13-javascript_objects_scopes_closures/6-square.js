@@ -1,16 +1,14 @@
 #!/usr/bin/node
-const preSquare = require('./5-square');
-
-class Square extends preSquare {
-}
-
-Square.prototype.charPrint = function (c) {
-  if (!c) {
-    c = 'X';
-  }
-  for (let i = 0; i < this.width; i++) {
-    console.log(c.repeat(this.width));
+// class Square
+const Sq = require('./5-square');
+module.exports = class Square extends Sq {
+  charPrint (c) {
+    if (c === undefined) {
+      this.print();
+    } else {
+      for (let j = 0; j < this.height; j++) {
+        console.log(Array(this.height + 1).join(c));
+      }
+    }
   }
 };
-
-module.exports = Square;
