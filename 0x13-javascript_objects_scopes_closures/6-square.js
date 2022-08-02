@@ -1,25 +1,14 @@
 #!/usr/bin/node
-/*  Class Square that defines a square and inherits from Rectangle */
-const _square = require('./5-square');
-class Square extends _square {
-  constructor (size) {
-    super(size, size);
-  }
+const Square1 = require('./5-square.js');
 
-  // Method that prints the rectangle using the character "C" or "X"
+module.exports = class Square extends Square1 {
   charPrint (c) {
-    if (c) {
-      let line;
-      for (let i = 0; i < this.height; i++) {
-        line = c;
-        for (let j = 0; j < this.width - 1; j++) {
-          line += c;
-        }
-        console.log(line);
-      }
-    } else {
+    if (c === undefined) {
       this.print();
+    } else {
+      for (let i = 0; i < this.width; i++) {
+        console.log(c.repeat(this.height));
+      }
     }
   }
-}
-module.exports = Square;
+};
